@@ -1,0 +1,16 @@
+{
+  "name": "thepurposeapi",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node src/server",
+    "dev": "nodemon src/server"
+  },
+  "keywords": [],
+  "author": "Rohit Kumar",
+  "license": "ISC",
+  "description": "An Ecommerce Project API",
+  "devDependencies": {
+    "nodemon": "^3.1.3"
+  }
+}
