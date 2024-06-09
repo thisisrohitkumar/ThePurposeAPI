@@ -18,7 +18,7 @@ const handleSendOpt = async (req, res) => {
     await Otp.create({ email, otp, expiresAt });
 
     sendOtpEmail(email, otp);
-    res.status(200).json({ msg: "OTP sent to email" });
+    res.status(200).json({ msg: `OTP sent to ${email}` });
   } catch (error) {
     console.error("Error sending OTP:", error);
     res.status(500).json({ msg: "Error sending OTP", error: error.message });
@@ -28,7 +28,7 @@ const handleVerifyOtp = async (req, res) => {
   const { email, otp } = req.body;
 
   try {
-    const otpRecord = await otp.findOne({ email, otp });
+    const otpRecord = await Otp.findOne({ email, otp });
 
     if (!otpRecord) {
       return res.status(400).json({ msg: "Invalid OTP" });
