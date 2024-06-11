@@ -6,6 +6,7 @@ const generateJwt = async (user) => {
     const payload = {
       id: user._id,
       email: user.email,
+      role: user.role
     };
     const token = await jwt.sign(payload, jwtSecret);
     return token;
